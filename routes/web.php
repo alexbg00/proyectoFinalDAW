@@ -12,7 +12,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+use App\Models\Image;
 Route::get('/', function () {
+    $images = Image::all();
+    foreach($images as $image){
+        echo $image->image_path."<br>";
+        echo $image->description."<br>";
+    }
+    die();
     return view('welcome');
 });
